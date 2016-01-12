@@ -15,25 +15,25 @@ NOTES:
 void quicksort(int[], int, int);
 
 int findSingleOccurenceNumber(int *A, int len) {
-	if (len >= 1 && A != '\0')
+	if (len >= 1 && A != '\0')//if the input is valid then proceed
 	{
-		quicksort(A, 0, len - 1);
+		quicksort(A, 0, len - 1);//sort the given array using quicksort algorithm 
 		int count = 0;
-		for (int index = 1; index < len - 1; index++)
+		for (int index = 1; index < len - 1; index++)//scan the array from the first to end-1
 		{
-			if (A[index - 1] != A[index] && A[index] != A[index + 1])
-				return A[index];
+			if (A[index - 1] != A[index] && A[index] != A[index + 1])//take an element if it is not equal to
+				return A[index];//its preceding and successive element then it means it occurs only once so return it
 		}
-		if (A[0] != A[1])
-			return A[0];
-		if (A[len - 2] != A[len - 1])
-			return A[len - 1];
-		return -1;
+		if (A[0] != A[1])//check for the boundary condition if the first element occured only once
+			return A[0];//if it did then return it
+		if (A[len - 2] != A[len - 1])//check for the boundary condition if last element occured only once
+			return A[len - 1];//if it did then return it
+		return -1;//if there is no such element then return -1
 	}
-	return -1;
+	return -1;//for all the invalid cases return -1
 }
 
-void quicksort(int A[], int low, int high)
+void quicksort(int A[], int low, int high)//quicksort algorithm for sorting the given array
 {
 	int pivot, j, temp, i;
 
